@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: etherpad
+  app.kubernetes.io/component: etherpad
+  app.kubernetes.io/part-of: etherpad
+
+resources:
+- settings.yaml
+- deployment.yaml
+- service.yaml
+- route.yaml
+
+images:
+- name: etherpad-image
+  newName: quay.io/calopezb/etherpad
+  newTag: 1.8.16
+
+secretGenerator:
+- name: etherpad-env
+  envs:
+  - properties.env
+  type: Opaque

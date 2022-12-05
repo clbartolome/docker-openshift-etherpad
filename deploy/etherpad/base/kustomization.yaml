@@ -14,7 +14,7 @@ resources:
 
 images:
 - name: etherpad-image
-  newName: quay.io/calopezb/etherpad
+  newName: quay.io/ansible_helm/etherpad
   newTag: 1.8.16
 
 secretGenerator:

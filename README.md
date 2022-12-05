@@ -8,9 +8,12 @@
 # Build image
 podman build . -t etherpad:1.8.16
 
+# Login into quay
+podman login quay.io
+
 # Tag and push into quay
-podman tag etherpad:1.8.16 quay.io/calopezb/etherpad:1.8.16
-podman push quay.io/calopezb/etherpad:1.8.16
+podman tag etherpad:1.8.16 quay.io/ansible_helm/etherpad:1.8.16
+podman push quay.io/ansible_helm/etherpad:1.8.16
 ```
 
 ## Deploy in OpenShift
